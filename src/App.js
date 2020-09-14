@@ -1,11 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
-import Homepage from "./pages/HomePage";
+import HomePage from "./pages/HomePage";
 
-class App extends Component {
-  render() {
-    return <Homepage />;
-  }
+const HatsPage = () => (
+  <div>
+    <h1>HATS PAGE </h1>
+  </div>
+);
+
+function App() {
+  return (
+    <div>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/shop/hats" component={HatsPage} />
+      </Switch>
+    </div>
+  );
 }
 
 export default App;
