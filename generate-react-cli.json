@@ -1,0 +1,18 @@
+{
+  "usesTypeScript": false,
+  "usesCssModule": false,
+  "cssPreprocessor": "scss",
+  "testLibrary": "Enzyme",
+  "component": {
+    "default": {
+      "customTemplates": {
+        "component": "generate-react-cli/templates/component/component.js"
+      },
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": false
+    }
+  }
+}
