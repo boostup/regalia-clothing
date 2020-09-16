@@ -1,9 +1,21 @@
 # Roadmap
 
+## Sign In form
+
+- [ ] handle response 400 upon signing in with a wrong email and/or password
+
 ## Sign Up form
 
 - [ ] when password and confirmPassword are different, a simple alert is displayed. Change that for something more UI friendly PLEASE !
 - [ ] handle response 400 upon sign up with an email already stored in firestore
+
+## Route : /signin
+
+- [ ] this route should not be accessible if a user is signed in
+
+## Upon Signing In / Signing Up
+
+- [ ] user must be redirected to the requested protected page if any; otherwise to the root of the site
 
 ---
 
