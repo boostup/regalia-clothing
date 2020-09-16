@@ -2,20 +2,25 @@
 
 ## Sign In form
 
-- [ ] handle response 400 upon signing in with a wrong email and/or password
+- [ ] handle response 400 upon signing in with a wrong email and/or password => toast notification
 
 ## Sign Up form
 
-- [ ] when password and confirmPassword are different, a simple alert is displayed. Change that for something more UI friendly PLEASE !
+- [ ] when password and confirmPassword are different, a simple alert is displayed => toast notification
 - [ ] handle response 400 upon sign up with an email already stored in firestore
 
 ## Route : /signin
 
-- [ ] this route should not be accessible if a user is signed in
+- [x] this route should not be accessible if a user is signed in
 
 ## Upon Signing In / Signing Up
 
-- [ ] user must be redirected to the requested protected page if any; otherwise to the root of the site
+- [x] user must be redirected to the requested protected page if any; otherwise to the root of the site
+
+## Upon Signing Out
+
+- [x] user must be redirected to the root of the site when signing out
+- [ ] confirm user has been signed out => toast notification
 
 ---
 

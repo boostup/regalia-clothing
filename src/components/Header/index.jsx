@@ -1,12 +1,18 @@
 import { auth } from "../../firebase/firebase.utils";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import "./Header.scss";
 
 function Header({ currentUser }) {
+  let history = useHistory();
+  const onSignOut = () => {
+    auth.signOut();
+    history.push("/");
+  };
+
   return (
     <div className="Header">
       <Link to="/" className="logo-container">
@@ -21,7 +27,7 @@ function Header({ currentUser }) {
         </Link>
 
         {currentUser ? (
-          <div className="option" onClick={() => auth.signOut()}>
+          <div className="option" onClick={onSignOut}>
             Sign out
           </div>
         ) : (
