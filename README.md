@@ -1,3 +1,12 @@
+# Roadmap
+
+## Sign Up form
+
+- [ ] when password and confirmPassword are different, a simple alert is displayed. Change that for something more UI friendly PLEASE !
+- [ ] handle response 400 upon sign up with an email already stored in firestore
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
