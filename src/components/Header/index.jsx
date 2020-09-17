@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import "./Header.scss";
+import CartIcon from "../CartIcon/CartIcon";
 
 function Header({ currentUser }) {
   let history = useHistory();
@@ -35,6 +36,7 @@ function Header({ currentUser }) {
             Sign in
           </Link>
         )}
+        <CartIcon />
       </div>
     </div>
   );
