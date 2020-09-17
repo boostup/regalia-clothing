@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import "./App.css";
 
@@ -10,6 +11,7 @@ import ShopPage from "./pages/ShopPage";
 import SignInAndSignOutPage from "./pages/SignInAndSignOutPage";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/actions";
+import { selectCurrentUser } from "./redux/user/selectors";
 
 function App({ currentUser, setCurrentUser }) {
   useEffect(() => {
@@ -30,7 +32,7 @@ function App({ currentUser, setCurrentUser }) {
     });
     // unsubscribe to the listener when unmounting
     return () => unsubscribe();
-  }, []);
+  }, [setCurrentUser]);
 
   return (
     <div>
@@ -50,9 +52,10 @@ function App({ currentUser, setCurrentUser }) {
   );
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
-});
+const mapStateToProps = (state) =>
+  createStructuredSelector({
+    currentUser: selectCurrentUser,
+  });
 
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
