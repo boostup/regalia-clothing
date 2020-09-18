@@ -2,11 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 // import { createStructuredSelector } from "reselect";
 
-import { clearItemFromCart } from "../../redux/cart/actions";
+import {
+  addItem,
+  removeItem,
+  clearItemFromCart,
+} from "../../redux/cart/actions";
 
 import "./CheckoutItem.scss";
 
-const CheckoutItem = ({ cartItem, clearItem }) => {
+const CheckoutItem = ({ cartItem, addOne, subtractOne, clearItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
   return (
@@ -15,7 +19,15 @@ const CheckoutItem = ({ cartItem, clearItem }) => {
         <img src={imageUrl} alt="item" />
       </div>
       <span className="name">{name}</span>
-      <span className="quantity">{quantity}</span>
+      <span className="quantity">
+        <div className="arrow" onClick={() => subtractOne(cartItem)}>
+          &#10094;
+        </div>
+        <span className="value">{quantity}</span>
+        <div className="arrow" onClick={() => addOne(cartItem)}>
+          &#10095;
+        </div>
+      </span>
       <span className="price">{price}</span>
       <div className="remove-button" onClick={() => clearItem(cartItem)}>
         &#10005;
@@ -28,6 +40,8 @@ const CheckoutItem = ({ cartItem, clearItem }) => {
 //   createStructuredSelector({ propName: selectorFunc });
 
 const mapDispatchToProps = (dispatch) => ({
+  addOne: (item) => dispatch(addItem(item)),
+  subtractOne: (item) => dispatch(removeItem(item)),
   clearItem: (item) => dispatch(clearItemFromCart(item)),
 });
 
