@@ -1,10 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+// import { createStructuredSelector } from "reselect";
+
+import { clearItemFromCart } from "../../redux/cart/actions";
 
 import "./CheckoutItem.scss";
 
-const CheckoutItem = ({ cartItem: { name, imageUrl, price, quantity } }) => {
+const CheckoutItem = ({ cartItem, clearItem }) => {
+  const { name, imageUrl, price, quantity } = cartItem;
+
   return (
     <div className="CheckoutItem">
       <div className="image-container">
@@ -13,7 +17,9 @@ const CheckoutItem = ({ cartItem: { name, imageUrl, price, quantity } }) => {
       <span className="name">{name}</span>
       <span className="quantity">{quantity}</span>
       <span className="price">{price}</span>
-      <div className="remove-button">&#10005;</div>
+      <div className="remove-button" onClick={() => clearItem(cartItem)}>
+        &#10005;
+      </div>
     </div>
   );
 };
@@ -21,9 +27,8 @@ const CheckoutItem = ({ cartItem: { name, imageUrl, price, quantity } }) => {
 // const mapStateToProps = (state) =>
 //   createStructuredSelector({ propName: selectorFunc });
 
-// const mapDispatchToProps = (dispatch) => ({
-//   propName: () => dispatch(actionFunc()),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  clearItem: (item) => dispatch(clearItemFromCart(item)),
+});
 
-// export default connect(mapStateToProps, mapDispatchToProps)(CheckoutItem);
-export default CheckoutItem;
+export default connect(null, mapDispatchToProps)(CheckoutItem);
