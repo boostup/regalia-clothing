@@ -1,0 +1,31 @@
+.CollectionPage {
+  display: flex;
+  flex-direction: column;
+
+  .go-back-button {
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+
+    .icon {
+      position: relative;
+      top: -2px;
+    }
+  }
+
+  .title {
+    font-size: 28px;
+    text-transform: uppercase;
+    margin: 0 auto 25px;
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+
+    & .CollectionItem {
+      margin-bottom: 30px;
+    }
+  }
+}
