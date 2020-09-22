@@ -1,6 +1,10 @@
 # 👑 Regalia Clothing 👚
 
-![Lights Out Game](public/images/app-demo.gif)
+[Live Demo](https://fervent-snyder-0eb669.netlify.app/#/)
+
+<a href="https://fervent-snyder-0eb669.netlify.app/#/" target="_blank">
+    <img src="public/images/app-demo.gif" />
+</a>
 
 ## Roadmap
 
