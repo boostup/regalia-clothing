@@ -5,23 +5,23 @@ import { useHistory } from "react-router-dom";
 import CollectionItem from "../../components/CollectionItem";
 import { seclectCollection } from "../../redux/shop/selectors";
 
-import "./CollectionPage.scss";
+import Container from "./styles";
 
 const CollectionPage = ({ collection }) => {
   const { title, items } = collection;
   const history = useHistory();
   return (
-    <div className="CollectionPage">
-      <span className="go-back-button" onClick={(e) => history.goBack()}>
-        <span className="icon">&#10092;</span> Go back
-      </span>
+    <Container>
+      <div className="back-button" onClick={(e) => history.goBack()}>
+        <span className="nav-icon">&#10092;</span> back
+      </div>
       <h1 className="title">{title}</h1>
       <div className="items">
         {items.map((item) => (
           <CollectionItem key={item.id} item={item} />
         ))}
       </div>
-    </div>
+    </Container>
   );
 };
 
