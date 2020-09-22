@@ -16,7 +16,7 @@ const StripeCheckoutButton = ({ price }) => {
   return (
     <StripeCheckout
       label="Pay Now"
-      name="Crown Clothing Ltd."
+      name="Regalia Clothing Ltd."
       billingAddress
       shippingAddress
       image="images/stripe/crown-logo.svg"
