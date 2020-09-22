@@ -1,15 +1,17 @@
-import { auth } from "../../firebase/firebase.utils";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { ReactComponent as Logo } from "../../assets/crown.svg";
-import "./Header.scss";
+import { auth } from "../../firebase/firebase.utils";
 import CartIcon from "../CartIcon";
 import CartDropdown from "../CartDropdown";
 import { selectCurrentUser } from "../../redux/user/selectors";
 import { selectCartHidden } from "../../redux/cart/selectors";
+
+import { ReactComponent as Logo } from "../../assets/crown.svg";
+
+import Container from "./styles";
 
 function Header({ currentUser, hidden }) {
   let history = useHistory();
@@ -19,7 +21,7 @@ function Header({ currentUser, hidden }) {
   };
 
   return (
-    <div className="Header">
+    <Container>
       <Link to="/" className="logo-container">
         <Logo className="logo" />
       </Link>
@@ -43,7 +45,7 @@ function Header({ currentUser, hidden }) {
         <CartIcon />
       </div>
       {hidden ? null : <CartDropdown />}
-    </div>
+    </Container>
   );
 }
 

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 import CustomButton from "../CustomButton";
 import FormInput from "../FormInput";
-import "./SignUp.scss";
+
+import Container from "./styles";
 
 const SignUp = () => {
   const [userData, setUserData] = useState({
@@ -51,17 +52,17 @@ const SignUp = () => {
   };
 
   return (
-    <div className="SignUp">
+    <Container>
       <h2 className="title">I do not have an account</h2>
       <span>Sign up with your email and password</span>
-      <form className="form" onSubmit={handleSubmit}>
+      <form autoComplete="off" className="form" onSubmit={handleSubmit}>
         <FormInput
           type="text"
           name="displayName"
           value={userData.displayName}
           onChange={handleChange}
           label="Display Name"
-          autoComplete="new-displayName"
+          // autoComplete="new-displayName"
           required
         />
         <FormInput
@@ -70,7 +71,7 @@ const SignUp = () => {
           value={userData.email}
           onChange={handleChange}
           label="Email"
-          autoComplete="new-email"
+          // autoComplete="new-email"
           required
         />
         <FormInput
@@ -79,7 +80,7 @@ const SignUp = () => {
           value={userData.password}
           onChange={handleChange}
           label="Password"
-          autoComplete="new-password"
+          // autoComplete="new-password"
           required
         />
         <FormInput
@@ -88,12 +89,12 @@ const SignUp = () => {
           value={userData.confirmPassword}
           onChange={handleChange}
           label="Confirm Password"
-          autoComplete="confirm-password"
+          // autoComplete="confirm-password"
           required
         />
         <CustomButton type="submit">Sign Up</CustomButton>
       </form>
-    </div>
+    </Container>
   );
 };
 

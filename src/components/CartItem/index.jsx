@@ -1,9 +1,10 @@
 import React from "react";
-import "./CartItem.scss";
+
+import Container from "./styles";
 
 const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
   return (
-    <div className="CartItem">
+    <Container>
       <img src={imageUrl} alt="item" />
       <div className="details">
         <span className="name">{name}</span>
@@ -11,7 +12,7 @@ const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
           {quantity} x ${price}
         </span>
       </div>
-    </div>
+    </Container>
   );
 };
 

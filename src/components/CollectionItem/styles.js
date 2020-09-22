@@ -1,4 +1,6 @@
-.CollectionItem {
+import styled from "styled-components";
+
+export default styled.div`
   width: 22vw;
   display: flex;
   flex-direction: column;
@@ -22,16 +24,11 @@
     font-size: 18px;
 
     .name {
-      width: 90%;
       margin-bottom: 15px;
-    }
-
-    .price {
-      width: 10%;
     }
   }
 
-  .CustomButton {
+  .button {
     width: 80%;
     opacity: 0.7;
     position: absolute;
@@ -43,9 +40,9 @@
     .image {
       opacity: 0.8;
     }
-    .CustomButton {
+    .button {
       display: block;
       opacity: 0.85;
     }
   }
-}
+`;

@@ -1,13 +1,13 @@
 import React from "react";
 
-import "./FormInput.scss";
+import Container from "./styles";
 
 function FormInput({ handleChange, label, ...otherProps }) {
   return (
-    <div className="group">
+    <Container>
       <input
         type="text"
-        className="FormInput"
+        className="formInput"
         onChange={handleChange}
         {...otherProps}
       />
@@ -19,7 +19,7 @@ function FormInput({ handleChange, label, ...otherProps }) {
           {label}
         </label>
       ) : null}
-    </div>
+    </Container>
   );
 }
 
