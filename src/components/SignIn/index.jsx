@@ -4,7 +4,7 @@ import CustomButton from "../CustomButton";
 
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
-import "./SignIn.scss";
+import Container from "./styles";
 
 class SignIn extends Component {
   constructor(props) {
@@ -37,11 +37,11 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div className="SignIn">
+      <Container>
         <h2>I already have an account</h2>
         <span>Sign in with your email and password</span>
 
-        <form onSubmit={this.handleSubmit}>
+        <form autoComplete="off" onSubmit={this.handleSubmit}>
           <FormInput
             name="email"
             type="email"
@@ -49,7 +49,7 @@ class SignIn extends Component {
             handleChange={this.handleChange}
             label="email"
             required
-            autoComplete="current-email"
+            // autoComplete="current-email"
           />
           <FormInput
             name="password"
@@ -58,7 +58,7 @@ class SignIn extends Component {
             handleChange={this.handleChange}
             label="password"
             required
-            autoComplete="current-password"
+            // autoComplete="current-password"
           />
           <div className="buttons">
             <CustomButton type="submit">Sign In</CustomButton>
@@ -71,7 +71,7 @@ class SignIn extends Component {
             </CustomButton>
           </div>
         </form>
-      </div>
+      </Container>
     );
   }
 }

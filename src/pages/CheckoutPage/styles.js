@@ -1,4 +1,6 @@
-.CheckoutPage {
+import styled from "styled-components";
+
+export default styled.div`
   width: 55%;
   min-height: 90vh;
   display: flex;
@@ -43,4 +45,4 @@
     margin-left: auto;
     margin-top: 40px;
   }
-}
+`;

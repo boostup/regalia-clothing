@@ -1,4 +1,6 @@
-.CartDropdown {
+import styled from "styled-components";
+
+export default styled.div`
   position: absolute;
   width: 240px;
   height: 340px;
@@ -26,4 +28,4 @@
   button {
     margin-top: auto;
   }
-}
+`;

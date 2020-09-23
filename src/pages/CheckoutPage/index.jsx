@@ -7,11 +7,11 @@ import StripeCheckoutButton from "../../components/StripeCheckoutButton";
 
 import { selectCartItems, selectCartTotal } from "../../redux/cart/selectors";
 
-import "./CheckoutPage.scss";
+import Container from "./styles";
 
 const CheckoutPage = ({ cartItems, total }) => {
   return (
-    <div className="CheckoutPage">
+    <Container>
       <div className="thead">
         <div className="th">Product</div>
         <div className="th">Description</div>
@@ -41,7 +41,7 @@ const CheckoutPage = ({ cartItems, total }) => {
           *As of January 2021, the expiration date is <u>any future date</u>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

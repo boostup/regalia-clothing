@@ -2,13 +2,14 @@ import React from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
 import CollectionItem from "../CollectionItem";
-import "./CollectionPreview.scss";
+
+import Container from "./styles";
 
 function CollectionPreview({ title, routeName, items }) {
   const history = useHistory();
   const { path } = useRouteMatch();
   return (
-    <div className="CollectionPreview">
+    <Container>
       <h1
         className="title"
         onClick={(e) => history.push(`${path}/${routeName}`)}
@@ -22,7 +23,7 @@ function CollectionPreview({ title, routeName, items }) {
             <CollectionItem key={item.id} item={item} />
           ))}
       </div>
-    </div>
+    </Container>
   );
 }
 

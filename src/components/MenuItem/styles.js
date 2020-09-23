@@ -1,6 +1,8 @@
-.MenuItem {
+import styled from "styled-components";
+
+export default styled.div`
   min-width: 30%;
-  height: 240px;
+  height: ${({ size }) => (size ? "380px" : "240px")};
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -15,10 +17,6 @@
       transform: scale(1.1);
       transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
-  }
-
-  &.large {
-    height: 380px;
   }
 
   &:first-child {
@@ -62,4 +60,4 @@
       font-size: 16px;
     }
   }
-}
+`;

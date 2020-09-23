@@ -1,15 +1,15 @@
 import React from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
-import "./MenuItem.scss";
+import Container from "./styles";
 
 function MenuItem({ title, imageUrl, size, linkUrl }) {
   const history = useHistory();
   const match = useRouteMatch();
 
   return (
-    <div
-      className={`${size} MenuItem`}
+    <Container
+      size={size}
       onClick={() => history.push(`${match.url}${linkUrl}`)}
     >
       <div
@@ -20,7 +20,7 @@ function MenuItem({ title, imageUrl, size, linkUrl }) {
         <h1 className="title">{title}</h1>
         <span className="subtitle">Shop Now</span>
       </div>
-    </div>
+    </Container>
   );
 }
 

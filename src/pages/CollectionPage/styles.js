@@ -1,22 +1,28 @@
-.CollectionPage {
+import styled from "styled-components";
+
+export default styled.div`
   display: flex;
   flex-direction: column;
 
-  .go-back-button {
-    text-align: left;
+  .back-button {
     cursor: pointer;
-    position: relative;
-
-    .icon {
+    .nav-icon {
+      font-size: 22px;
+      top: -4px;
       position: relative;
-      top: -2px;
     }
   }
 
-  .title {
+  .title,
+  .back-button {
     font-size: 28px;
     text-transform: uppercase;
-    margin: 0 auto 25px;
+    margin: 0 0 25px;
+    position: relative;
+  }
+
+  .title {
+    text-align: center;
   }
 
   .items {
@@ -28,4 +34,4 @@
       margin-bottom: 30px;
     }
   }
-}
+`;
