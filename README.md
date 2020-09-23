@@ -6,34 +6,6 @@
     <img src="public/images/app-demo.gif" />
 </a>
 
-## Roadmap
-
-### Contact section
-
-Link to my Github portfolio or LinkedIn Profile ?
-
-### Sign In form
-
-- [ ] handle response 400 upon signing in with a wrong email and/or password => toast notification
-
-### Sign Up form
-
-- [ ] when password and confirmPassword are different, a simple alert is displayed => toast notification
-- [ ] handle response 400 upon sign up with an email already stored in firestore
-
-### Route : /signin
-
-- [x] this route should not be accessible if a user is signed in
-
-### Upon Signing In / Signing Up
-
-- [x] user must be redirected to the requested protected page if any; otherwise to the root of the site
-
-### Upon Signing Out
-
-- [x] user must be redirected to the root of the site when signing out
-- [ ] confirm user has been signed out => toast notification
-
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
