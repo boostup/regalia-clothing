@@ -30,7 +30,7 @@ export default styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
 
-    & .CollectionItem {
+    & > div {
       margin-bottom: 30px;
     }
   }
