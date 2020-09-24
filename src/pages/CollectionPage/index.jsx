@@ -1,9 +1,14 @@
 import React from "react";
+import { compose } from "redux";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import CollectionItem from "../../components/CollectionItem";
-import { seclectCollection } from "../../redux/shop/selectors";
+import {
+  seclectCollection,
+  selectIsCollectionsLoaded,
+} from "../../redux/shop/selectors";
+import { withSpinner } from "../../components/WithLoader";
 
 import Container from "./styles";
 
@@ -26,7 +31,8 @@ const CollectionPage = ({ collection }) => {
 };
 
 const mapStateToProps = (state, ownProps) => ({
+  isLoading: !selectIsCollectionsLoaded(state),
   collection: seclectCollection(ownProps.match.params.collectionId)(state),
 });
 
-export default connect(mapStateToProps)(CollectionPage);
+export default compose(connect(mapStateToProps), withSpinner)(CollectionPage);
