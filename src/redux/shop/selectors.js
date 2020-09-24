@@ -19,3 +19,14 @@ export const seclectCollection = memoize((collectionUrlParam) =>
     collections ? collections[collectionUrlParam] : null
   )
 );
+
+export const selectIsCollectionsFetching = createSelector(
+  [selectShop],
+  (shop) => shop.isFetching
+);
+
+//https://www.udemy.com/course/complete-react-developer-zero-to-mastery/learn/lecture/15213926#questions/7711480
+export const selectIsCollectionsLoaded = createSelector(
+  [selectShop],
+  (shop) => !!shop.collections //!! (double bang) converts a falsy value into a Boolean.  Could have used `Boolean(shop.collections)` instead for the same result, but it seems double bang is HYPE among senior devs !
+);
