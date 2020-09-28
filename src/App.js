@@ -11,30 +11,13 @@ import ShopPage from "./pages/ShopPage";
 import SignInAndSignOutPage from "./pages/SignInAndSignOutPage";
 import CheckoutPage from "./pages/CheckoutPage";
 
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-import { setCurrentUser } from "./redux/user/actions";
 import { selectCurrentUser } from "./redux/user/selectors";
+import { checkUserSession } from "./redux/user/actions";
 
-function App({ currentUser, setCurrentUser }) {
+function App({ currentUser, checkUserSession }) {
   useEffect(() => {
-    // listen for auth state changes
-    const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
-      if (userAuth) {
-        //when user Signs IN
-        const userRef = await createUserProfileDocument(userAuth);
-        userRef.onSnapshot((snapShot) => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data(),
-          });
-        });
-      }
-      //when user Signs OUT => userAuth === null
-      setCurrentUser(userAuth);
-    });
-    // unsubscribe to the listener when unmounting
-    return () => unsubscribe();
-  }, [setCurrentUser]);
+    checkUserSession();
+  }, [checkUserSession]);
 
   return (
     <div>
@@ -61,6 +44,7 @@ const mapStateToProps = (state) =>
   });
 
 const mapDispatchToProps = (dispatch) => ({
-  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+  checkUserSession: () => dispatch(checkUserSession()),
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);
