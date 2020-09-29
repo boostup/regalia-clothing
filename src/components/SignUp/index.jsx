@@ -16,10 +16,10 @@ const SignUp = ({ signUpStart }) => {
     confirmPassword: "",
   });
 
+  const { displayName, email, password, confirmPassword } = userData;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { displayName, email, password, confirmPassword } = userData;
-
     if (password !== confirmPassword) {
       alert("passwords don't match");
       return;
@@ -45,7 +45,7 @@ const SignUp = ({ signUpStart }) => {
         <FormInput
           type="text"
           name="displayName"
-          value={userData.displayName}
+          value={displayName}
           onChange={handleChange}
           label="Display Name"
           // autoComplete="new-displayName"
@@ -54,7 +54,7 @@ const SignUp = ({ signUpStart }) => {
         <FormInput
           type="email"
           name="email"
-          value={userData.email}
+          value={email}
           onChange={handleChange}
           label="Email"
           // autoComplete="new-email"
@@ -63,7 +63,7 @@ const SignUp = ({ signUpStart }) => {
         <FormInput
           type="password"
           name="password"
-          value={userData.password}
+          value={password}
           onChange={handleChange}
           label="Password"
           // autoComplete="new-password"
@@ -72,7 +72,7 @@ const SignUp = ({ signUpStart }) => {
         <FormInput
           type="password"
           name="confirmPassword"
-          value={userData.confirmPassword}
+          value={confirmPassword}
           onChange={handleChange}
           label="Confirm Password"
           // autoComplete="confirm-password"
