@@ -1,6 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
-// import { createStructuredSelector } from "reselect";
+import { useDispatch } from "react-redux";
 
 import {
   addItem,
@@ -10,8 +9,13 @@ import {
 
 import Container from "./styles";
 
-const CheckoutItem = ({ cartItem, addOne, subtractOne, clearItem }) => {
+const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
+
+  const dispatch = useDispatch();
+  const addOne = (item) => dispatch(addItem(item));
+  const subtractOne = (item) => dispatch(removeItem(item));
+  const clearItem = (item) => dispatch(clearItemFromCart(item));
 
   return (
     <Container>
@@ -36,13 +40,4 @@ const CheckoutItem = ({ cartItem, addOne, subtractOne, clearItem }) => {
   );
 };
 
-// const mapStateToProps = (state) =>
-//   createStructuredSelector({ propName: selectorFunc });
-
-const mapDispatchToProps = (dispatch) => ({
-  addOne: (item) => dispatch(addItem(item)),
-  subtractOne: (item) => dispatch(removeItem(item)),
-  clearItem: (item) => dispatch(clearItemFromCart(item)),
-});
-
-export default connect(null, mapDispatchToProps)(CheckoutItem);
+export default CheckoutItem;

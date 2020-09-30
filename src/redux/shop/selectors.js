@@ -20,11 +20,6 @@ export const seclectCollection = memoize((collectionUrlParam) =>
   )
 );
 
-export const selectIsCollectionsFetching = createSelector(
-  [selectShop],
-  (shop) => shop.isFetching
-);
-
 //https://www.udemy.com/course/complete-react-developer-zero-to-mastery/learn/lecture/15213926#questions/7711480
 export const selectIsCollectionsLoaded = createSelector(
   [selectShop],

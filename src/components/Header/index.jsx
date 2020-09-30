@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import { useDispatch, useSelector } from "react-redux";
 
 import CartIcon from "../CartIcon";
 import CartDropdown from "../CartDropdown";
@@ -13,7 +12,11 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 import Container from "./styles";
 
-function Header({ currentUser, hidden, signOut }) {
+function Header() {
+  const currentUser = useSelector(selectCurrentUser);
+  const hidden = useSelector(selectCartHidden);
+  const dispatch = useDispatch();
+
   return (
     <Container>
       <Link to="/" className="logo-container">
@@ -28,7 +31,7 @@ function Header({ currentUser, hidden, signOut }) {
         </Link>
 
         {currentUser ? (
-          <div className="option" onClick={signOut}>
+          <div className="option" onClick={() => dispatch(signOutStart())}>
             Sign out
           </div>
         ) : (
@@ -43,14 +46,4 @@ function Header({ currentUser, hidden, signOut }) {
   );
 }
 
-const mapStateToProps = (state) =>
-  createStructuredSelector({
-    currentUser: selectCurrentUser,
-    hidden: selectCartHidden,
-  });
-
-const mapDispatchToProps = (dispatch) => ({
-  signOut: () => dispatch(signOutStart()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;
