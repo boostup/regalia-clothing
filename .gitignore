@@ -2,6 +2,8 @@
 # Local Netlify folder
 .netlify
 
+*.http
+
 # netlify serverless functions 
 functions/node_modules
 
