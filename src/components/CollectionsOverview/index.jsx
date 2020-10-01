@@ -1,18 +1,20 @@
 import React from "react";
-import { compose } from "redux";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
 
 import {
-  selectIsCollectionsFetching,
+  selectIsCollectionsLoaded,
   selectShopCollectionsForPreview,
 } from "../../redux/shop/selectors";
 import CollectionPreview from "../../components/CollectionPreview";
-import { withSpinner } from "../../components/WithLoader";
 
 import Container from "./styles";
+import { useSelector } from "react-redux";
+import { useSpinningLoader } from "../Loadable";
 
-const CollectionsOverview = ({ collections }) => {
+const CollectionsOverview = () => {
+  const collections = useSelector((state) =>
+    selectShopCollectionsForPreview(state)
+  );
+
   return (
     <Container>
       {collections.map(({ id, ...otherCollectionProps }) => (
@@ -22,12 +24,8 @@ const CollectionsOverview = ({ collections }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  isLoading: selectIsCollectionsFetching,
-  collections: selectShopCollectionsForPreview,
-});
-
-export default compose(
-  connect(mapStateToProps),
-  withSpinner
-)(CollectionsOverview);
+export default () => {
+  const isLoading = useSelector((state) => !selectIsCollectionsLoaded(state));
+  const loader = useSpinningLoader(isLoading);
+  return loader(CollectionsOverview);
+};
