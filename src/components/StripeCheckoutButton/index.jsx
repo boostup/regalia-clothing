@@ -7,7 +7,7 @@ const StripeCheckoutButton = ({ price }) => {
     "pk_test_51HU5U2KAQTtsBep1dQ8uL4AH0zOMK8UdgDmATRQTfitDrs7KOODaw7Xxv6wwVOIwULhjVmtD8BrjkzfSMXFFsF1J00XkMBfntR";
 
   const onToken = async (token) => {
-    const response = await fetch("/.netlify/functions/payment", {
+    await fetch("/.netlify/functions/payment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
