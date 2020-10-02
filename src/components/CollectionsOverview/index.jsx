@@ -1,19 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import {
-  selectIsCollectionsLoaded,
-  selectShopCollectionsForPreview,
-} from "../../redux/shop/selectors";
 import CollectionPreview from "../../components/CollectionPreview";
 
+import { Context as CollectionsContext } from "../../contexts/collections";
+
 import Container from "./styles";
-import { useSelector } from "react-redux";
 import { useSpinningLoader } from "../Loadable";
 
 const CollectionsOverview = () => {
-  const collections = useSelector((state) =>
-    selectShopCollectionsForPreview(state)
-  );
+  const { getCollectionsAsArray } = useContext(CollectionsContext);
+  const collections = getCollectionsAsArray();
 
   return (
     <Container>
@@ -25,7 +21,7 @@ const CollectionsOverview = () => {
 };
 
 export default () => {
-  const isLoading = useSelector((state) => !selectIsCollectionsLoaded(state));
+  const { isLoading, error } = useContext(CollectionsContext);
   const loader = useSpinningLoader(isLoading);
-  return loader(CollectionsOverview);
+  return loader(CollectionsOverview, error);
 };

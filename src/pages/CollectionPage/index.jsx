@@ -1,23 +1,19 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useContext } from "react";
+
 import { useHistory, useParams } from "react-router-dom";
+
+import { Context as CollectionsContext } from "../../contexts/collections";
 
 import CollectionItem from "../../components/CollectionItem";
 import { useSpinningLoader } from "../../components/Loadable";
-import {
-  seclectCollection,
-  selectIsCollectionsLoaded,
-} from "../../redux/shop/selectors";
 
 import Container from "./styles";
 
 const CollectionPage = () => {
   const history = useHistory();
+  const { getCollection } = useContext(CollectionsContext);
   const { collectionId } = useParams();
-  const collection = useSelector((state) =>
-    seclectCollection(collectionId)(state)
-  );
-  const { title, items } = collection;
+  const { title, items } = getCollection(collectionId);
 
   return (
     <Container>
@@ -35,7 +31,7 @@ const CollectionPage = () => {
 };
 
 export default () => {
-  const isLoading = useSelector((state) => !selectIsCollectionsLoaded(state));
+  const { isLoading, error } = useContext(CollectionsContext);
   const loader = useSpinningLoader(isLoading);
-  return loader(CollectionPage);
+  return loader(CollectionPage, error);
 };
