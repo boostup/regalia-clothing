@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import CollectionPreview from "../../components/CollectionPreview";
 
-import { Context as CollectionsContext } from "../../contexts/collections";
+import { CollectionsContext } from "../../contexts/collections";
 
 import Container from "./styles";
 import { useSpinningLoader } from "../Loadable";

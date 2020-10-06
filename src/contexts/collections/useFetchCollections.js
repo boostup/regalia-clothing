@@ -8,55 +8,87 @@ import {
 
 const INITIAL_STATE = {
   collections: null,
-  isLoading: true,
+  isLoading: false,
   error: undefined,
-  getCollectionsAsArray: () => {},
-  getCollection: () => {},
+  getCollectionsAsArray: () => [],
+  getCollection: () => ({ title: "", items: [] }),
 };
 
 export default () => {
   const [collectionsState, setCollectionsState] = useState(INITIAL_STATE);
-  const fetchCollections = fetchCollectionsAsync(setCollectionsState);
 
   useEffect(() => {
-    fetchCollections();
-  }, [fetchCollections]);
+    fetchCollectionsAsync(setCollectionsState);
+  }, []);
+
   return collectionsState;
 };
 
-const fetchCollectionsAsync = (setState) => async () => {
+const fetchCollectionsAsync = async (setState) => {
+  fetchCollectionsStart(setState);
+
+  let collectionsMap, snapshot;
   try {
-    const collectionsRef = firestore.collection("collections");
-    const snapshot = await collectionsRef.get();
-    const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-    setState(
-      snapshot.empty
-        ? {
-            ...INITIAL_STATE,
-            isLoading: false,
-            error: "collections collection is empty.",
-          }
-        : {
-            collections: collectionsMap,
-            getCollectionsAsArray: () =>
-              convertCollectionsToArray(collectionsMap),
-            getCollection: memoize(
-              (collectionId) => collectionsMap[collectionId]
-            ),
-            isLoading: false,
-            error: INITIAL_STATE.error,
-          }
-    );
+    if (process.env.NODE_ENV === "production") {
+      const collectionsRef = firestore.collection("collections");
+      snapshot = await collectionsRef.get();
+      collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+    }
+
+    if (process.env.NODE_ENV === "development") {
+      collectionsMap = await fetchFromLocalJSONFile();
+      snapshot = { empty: false };
+    }
+
+    snapshot.empty
+      ? fetchCollectionsFailure(setState, "collections collection is empty.")
+      : fetchCollectionsSuccess(setState, collectionsMap);
   } catch (error) {
-    setState({
-      ...INITIAL_STATE,
-      isLoading: false,
-      error: error.message,
-    });
+    fetchCollectionsFailure(setState, error.message);
   }
+};
+
+const fetchCollectionsStart = (setState) => {
+  setState({
+    ...INITIAL_STATE,
+    isLoading: true,
+  });
+};
+
+const fetchCollectionsSuccess = (setState, collectionsMap) => {
+  setState({
+    collections: collectionsMap,
+    getCollectionsAsArray: () => convertCollectionsToArray(collectionsMap),
+    getCollection: memoize((collectionId) => collectionsMap[collectionId]),
+    isLoading: false,
+  });
+};
+
+const fetchCollectionsFailure = (setState, error) => {
+  setState({
+    ...INITIAL_STATE,
+    error,
+  });
 };
 
 const convertCollectionsToArray = (collectionsObj) =>
   collectionsObj
     ? Object.keys(collectionsObj).map((key) => collectionsObj[key])
     : [];
+
+const fetchFromLocalJSONFile = async () => {
+  let collectionsMap;
+  try {
+    const collectionsJSON = require("./shop.data");
+    collectionsMap = new Promise((resolve) => {
+      setTimeout(() => {
+        //using setTimeout to simulate an API request taking a bit of time
+        resolve(collectionsJSON.default);
+      }, 500);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+
+  return collectionsMap;
+};

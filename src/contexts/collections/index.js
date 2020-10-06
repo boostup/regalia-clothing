@@ -1,12 +1,14 @@
 import React, { createContext } from "react";
 import useFetchCollections from "./useFetchCollections";
 
-export const Context = createContext();
+export const CollectionsContext = createContext();
 
-export const CollectionsContext = ({ children }) => {
+export const CollectionsContextProvider = ({ children }) => {
   const collectionsState = useFetchCollections();
 
   return (
-    <Context.Provider value={collectionsState}>{children}</Context.Provider>
+    <CollectionsContext.Provider value={collectionsState}>
+      {children}
+    </CollectionsContext.Provider>
   );
 };

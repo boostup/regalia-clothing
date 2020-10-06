@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { useHistory, useParams } from "react-router-dom";
 
-import { Context as CollectionsContext } from "../../contexts/collections";
+import { CollectionsContext } from "../../contexts/collections";
 
 import CollectionItem from "../../components/CollectionItem";
 import { useSpinningLoader } from "../../components/Loadable";
