@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
+import { CartContext } from "../../contexts/cart";
 
 import CartIcon from "../CartIcon";
 import CartDropdown from "../CartDropdown";
 import { selectCurrentUser } from "../../redux/user/selectors";
 import { signOutStart } from "../../redux/user/actions";
-import { selectCartHidden } from "../../redux/cart/selectors";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
@@ -14,8 +15,8 @@ import Container from "./styles";
 
 function Header() {
   const currentUser = useSelector(selectCurrentUser);
-  const hidden = useSelector(selectCartHidden);
   const dispatch = useDispatch();
+  const { isCartHidden } = useContext(CartContext);
 
   return (
     <Container>
@@ -41,7 +42,7 @@ function Header() {
         )}
         <CartIcon />
       </div>
-      {hidden ? null : <CartDropdown />}
+      {isCartHidden() ? null : <CartDropdown />}
     </Container>
   );
 }

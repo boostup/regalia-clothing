@@ -1,21 +1,16 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useContext } from "react";
 
-import {
-  addItem,
-  removeItem,
-  clearItemFromCart,
-} from "../../redux/cart/actions";
+import { CartContext } from "../../contexts/cart";
 
 import Container from "./styles";
 
 const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
-  const dispatch = useDispatch();
-  const addOne = (item) => dispatch(addItem(item));
-  const subtractOne = (item) => dispatch(removeItem(item));
-  const clearItem = (item) => dispatch(clearItemFromCart(item));
+  const { addItem, removeItem, clearItemFromCart } = useContext(CartContext);
+  const addOne = () => addItem(cartItem);
+  const subtractOne = () => removeItem(cartItem);
+  const clearItem = () => clearItemFromCart(cartItem);
 
   return (
     <Container>
@@ -24,16 +19,16 @@ const CheckoutItem = ({ cartItem }) => {
       </div>
       <span className="name">{name}</span>
       <span className="quantity">
-        <div className="arrow" onClick={() => subtractOne(cartItem)}>
+        <div className="arrow" onClick={subtractOne}>
           &#10094;
         </div>
         <span className="value">{quantity}</span>
-        <div className="arrow" onClick={() => addOne(cartItem)}>
+        <div className="arrow" onClick={addOne}>
           &#10095;
         </div>
       </span>
       <span className="price">{price}</span>
-      <div className="remove-button" onClick={() => clearItem(cartItem)}>
+      <div className="remove-button" onClick={clearItem}>
         &#10005;
       </div>
     </Container>

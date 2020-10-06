@@ -1,9 +1,7 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import React, { useContext } from "react";
 
-import { selectCartItems } from "../../redux/cart/selectors";
-import { toggleCartHidden } from "../../redux/cart/actions";
+import { useHistory } from "react-router-dom";
+import { CartContext } from "../../contexts/cart";
 
 import CartItem from "../CartItem";
 import CustomButton from "../CustomButton";
@@ -12,8 +10,8 @@ import Container from "./styles";
 
 const CartDropdown = () => {
   const history = useHistory();
-  const cartItems = useSelector(selectCartItems);
-  const dispatch = useDispatch();
+  const { toggleCartDropdown, getCartItems } = useContext(CartContext);
+  const cartItems = getCartItems();
 
   return (
     <Container>
@@ -28,7 +26,7 @@ const CartDropdown = () => {
       <CustomButton
         onClick={() => {
           history.push("/checkout");
-          dispatch(toggleCartHidden());
+          toggleCartDropdown();
         }}
       >
         Go to checkout

@@ -1,7 +1,6 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useContext } from "react";
 
-import { addItem } from "../../redux/cart/actions";
+import { CartContext } from "../../contexts/cart";
 
 import CustomButton from "../CustomButton";
 
@@ -9,9 +8,9 @@ import Container from "./styles";
 
 function CollectionItem({ item }) {
   const { name, price, imageUrl } = item;
+  const { addItem } = useContext(CartContext);
 
-  const dispatch = useDispatch();
-  const addItemToCart = (item) => dispatch(addItem(item));
+  const addItemToCart = (item) => addItem(item);
 
   return (
     <Container>

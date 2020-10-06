@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import { CartContextProvider } from "./contexts/cart";
+
 import "./App.css";
 
 import Header from "./components/Header";
@@ -22,21 +24,23 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/shop" component={ShopPage} />
-        <Route exact path="/checkout" component={CheckoutPage} />
-        <Route
-          exact
-          path="/signin"
-          render={() =>
-            currentUser ? <Redirect to="/" /> : <SignInAndSignOutPage />
-          }
-        />
-      </Switch>
-    </div>
+    <CartContextProvider>
+      <div>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              currentUser ? <Redirect to="/" /> : <SignInAndSignOutPage />
+            }
+          />
+        </Switch>
+      </div>
+    </CartContextProvider>
   );
 }
 
