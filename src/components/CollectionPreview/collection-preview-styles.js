@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export default styled.div`
   display: flex;
@@ -22,5 +22,15 @@ export default styled.div`
   .preview {
     display: flex;
     justify-content: space-between;
+  }
+
+  @media screen and (max-width: 800px) {
+    align-items: center;
+
+    .preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
+    }
   }
 `;

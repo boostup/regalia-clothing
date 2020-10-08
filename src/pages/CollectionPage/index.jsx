@@ -9,7 +9,7 @@ import {
   selectIsCollectionsLoaded,
 } from "../../redux/shop/selectors";
 
-import Container from "./styles";
+import Container from "./collection-page-styles";
 
 const CollectionPage = () => {
   const history = useHistory();

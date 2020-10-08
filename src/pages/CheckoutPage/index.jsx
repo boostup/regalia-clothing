@@ -6,7 +6,7 @@ import StripeCheckoutButton from "../../components/StripeCheckoutButton";
 
 import { selectCartItems, selectCartTotal } from "../../redux/cart/selectors";
 
-import Container from "./styles";
+import Container from "./checkout-page-styles";
 
 const CheckoutPage = () => {
   const cartItems = useSelector(selectCartItems);

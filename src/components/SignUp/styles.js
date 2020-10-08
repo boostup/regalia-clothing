@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export default styled.div`
   display: flex;
@@ -8,4 +8,4 @@ export default styled.div`
   .title {
     margin: 1rem 0;
   }
-`
+`;

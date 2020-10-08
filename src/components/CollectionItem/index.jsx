@@ -5,7 +5,7 @@ import { addItem } from "../../redux/cart/actions";
 
 import CustomButton from "../CustomButton";
 
-import Container from "./styles";
+import Container from "./collection-item-styles";
 
 function CollectionItem({ item }) {
   const { name, price, imageUrl } = item;

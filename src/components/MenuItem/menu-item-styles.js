@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export default styled.div`
   min-width: 30%;
@@ -59,5 +59,9 @@ export default styled.div`
       text-transform: uppercase;
       font-size: 16px;
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
   }
 `;

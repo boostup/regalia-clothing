@@ -1,6 +1,6 @@
 import React from "react";
 
-import Container from "./styles";
+import Container from "./form-input-styles";
 
 function FormInput({ handleChange, label, ...otherProps }) {
   return (

@@ -10,7 +10,7 @@ import { selectCartHidden } from "../../redux/cart/selectors";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
-import Container from "./styles";
+import Container from "./header-styles";
 
 function Header() {
   const currentUser = useSelector(selectCurrentUser);

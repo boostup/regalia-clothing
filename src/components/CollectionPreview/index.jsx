@@ -3,7 +3,7 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 
 import CollectionItem from "../CollectionItem";
 
-import Container from "./styles";
+import Container from "./collection-preview-styles";
 
 function CollectionPreview({ title, routeName, items }) {
   const history = useHistory();

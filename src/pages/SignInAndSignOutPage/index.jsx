@@ -2,7 +2,7 @@ import React from "react";
 import SignIn from "../../components/SignIn";
 import SignUp from "../../components/SignUp";
 
-import Container from "./styles";
+import Container from "./sigin-and-signout-page-styles";
 
 function SignInAndSignOutPage() {
   return (

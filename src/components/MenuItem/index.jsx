@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
-import Container from "./styles";
+import Container from "./menu-item-styles";
 
 function MenuItem({ title, imageUrl, size, linkUrl }) {
   const history = useHistory();
