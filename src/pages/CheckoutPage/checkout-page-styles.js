@@ -1,5 +1,23 @@
 import styled from "styled-components/macro";
 
+export const PayButtonWrapper = styled.div`
+  position: fixed;
+  top: 70px;
+  right: 1rem;
+  padding: 0;
+  width: 100%;
+  text-align: right; 
+  z-index: 1;
+  background: white;
+
+  @media screen and (max-width: 800px) {
+    top: 60px;
+    padding: 0 1.4rem 1rem;
+    right:0;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+  }
+`;
+
 export default styled.div`
   width: 55%;
   min-height: 90vh;
@@ -7,6 +25,7 @@ export default styled.div`
   flex-direction: column;
   align-items: center;
   margin: 50px auto 0;
+  position: relative;
 
   .thead {
     width: 100%;
@@ -41,14 +60,9 @@ export default styled.div`
     }
   }
 
-  button {
-    margin-left: auto;
-    margin-top: 40px;
-  }
-
   @media screen and (max-width: 800px) {
       width: unset;
-      margin: 1rem;
+      margin: 3rem 1rem;
 
       .thead{
         display:none;
