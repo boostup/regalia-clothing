@@ -26,19 +26,19 @@ function Header() {
         <Link to="/shop" className="option">
           Shop
         </Link>
-        <Link to="/contact" className="option">
+        <a href="https://github.com/boostup" className="option">
           Contact
-        </Link>
+        </a>
 
         {currentUser ? (
           <div className="option" onClick={() => dispatch(signOutStart())}>
             Sign out
           </div>
         ) : (
-          <Link to="/signin" className="option">
-            Sign in
-          </Link>
-        )}
+            <Link to="/signin" className="option">
+              Sign in
+            </Link>
+          )}
         <CartIcon />
       </div>
       {hidden ? null : <CartDropdown />}
