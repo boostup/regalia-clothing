@@ -51,12 +51,12 @@ export default styled.div`
     .remove-button
     {
       width: unset;
-    }    
+    }     
 
     .image-container {
-      grid-area: image;
-
-    }    
+      max-height:160px;
+      overflow: hidden;
+    }  
 
     .name {
       justify-self: start;
@@ -80,6 +80,10 @@ export default styled.div`
     }  
 
     /** GRID DEFINITION */
+
+    .image-container {
+      grid-area: image;
+    }   
 
     .name {
       grid-area: name;
