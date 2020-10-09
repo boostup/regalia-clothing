@@ -8,7 +8,7 @@ import { toggleCartHidden } from "../../redux/cart/actions";
 import CartItem from "../CartItem";
 import CustomButton from "../CustomButton";
 
-import Container from "./styles";
+import Container from "./cart-dropdown.styles";
 
 const CartDropdown = () => {
   const history = useHistory();

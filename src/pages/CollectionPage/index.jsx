@@ -9,7 +9,7 @@ import {
   selectIsCollectionsLoaded,
 } from "../../redux/shop/selectors";
 
-import Container from "./styles";
+import Container from "./collection-page-styles";
 
 const CollectionPage = () => {
   const history = useHistory();
@@ -21,10 +21,10 @@ const CollectionPage = () => {
 
   return (
     <Container>
-      <div className="back-button" onClick={(e) => history.goBack()}>
-        <span className="nav-icon">&#10092;</span> back
+      <div className="nav-bar">
+        <h1 className="title">{title}</h1>
+        <span className="nav-icon" onClick={(e) => history.goBack()}>&lsaquo;&nbsp;Back</span>
       </div>
-      <h1 className="title">{title}</h1>
       <div className="items">
         {items.map((item) => (
           <CollectionItem key={item.id} item={item} />

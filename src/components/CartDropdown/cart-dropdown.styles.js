@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export default styled.div`
   position: absolute;
@@ -9,9 +9,14 @@ export default styled.div`
   padding: 20px;
   border: 1px solid black;
   background-color: white;
-  top: 90px;
-  right: 40px;
+  top: 60px;
+  right: 10px;
   z-index: 5;
+
+  @media screen and (max-width: 800px) {
+    top: 50px;
+    right: 25px;
+  }
 
   .items {
     height: 240px;

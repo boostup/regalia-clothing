@@ -6,7 +6,7 @@ import {
 } from "../../redux/shop/selectors";
 import CollectionPreview from "../../components/CollectionPreview";
 
-import Container from "./styles";
+import Container from "./collections-overview-styles";
 import { useSelector } from "react-redux";
 import { useSpinningLoader } from "../Loadable";
 

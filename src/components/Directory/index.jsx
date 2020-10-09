@@ -4,7 +4,7 @@ import { selectDirectorySections } from "../../redux/directory/selectors";
 
 import MenuItem from "../MenuItem";
 
-import Container from "./styles";
+import Container from "./directory-styles";
 
 function Directory() {
   const sections = useSelector(selectDirectorySections);

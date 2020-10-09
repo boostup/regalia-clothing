@@ -10,7 +10,7 @@ import { selectCartHidden } from "../../redux/cart/selectors";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
-import Container from "./styles";
+import Container from "./header-styles";
 
 function Header() {
   const currentUser = useSelector(selectCurrentUser);
@@ -26,19 +26,19 @@ function Header() {
         <Link to="/shop" className="option">
           Shop
         </Link>
-        <Link to="/contact" className="option">
+        <a href="https://github.com/boostup" className="option">
           Contact
-        </Link>
+        </a>
 
         {currentUser ? (
           <div className="option" onClick={() => dispatch(signOutStart())}>
             Sign out
           </div>
         ) : (
-          <Link to="/signin" className="option">
-            Sign in
-          </Link>
-        )}
+            <Link to="/signin" className="option">
+              Sign in
+            </Link>
+          )}
         <CartIcon />
       </div>
       {hidden ? null : <CartDropdown />}
