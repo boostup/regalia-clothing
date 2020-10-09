@@ -9,8 +9,7 @@ export default styled.div`
 
   @media screen and (max-width: 800px) {
     height: 60px;
-    padding: 1rem;
-    margin-bottom: 2rem;
+    padding: 1rem 0.8rem;
   }
 
   .logo-container {
@@ -43,6 +42,10 @@ export default styled.div`
       @media screen and (max-width: 800px) {
         padding: 1rem;
       }
+
+      @media screen and (max-width: 320px) {
+        padding: 0.5rem;
+      }      
     }
   }
 `;

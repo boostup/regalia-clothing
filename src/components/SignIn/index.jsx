@@ -6,7 +6,7 @@ import CustomButton from "../CustomButton";
 
 import { emailSignInStart, googleSignInStart } from "../../redux/user/actions";
 
-import Container from "./styles";
+import Container from "./sign-in-styles";
 
 const SignIn = () => {
   const [userData, setUserData] = useState({
@@ -29,8 +29,8 @@ const SignIn = () => {
 
   return (
     <Container>
-      <h2>I already have an account</h2>
-      <span>Sign in with your email and password</span>
+      <h2 className="title">I already have an account</h2>
+      <span className="instructions">Sign in with your email and password</span>
 
       <form autoComplete="off" onSubmit={handleSubmit}>
         <FormInput
@@ -40,7 +40,7 @@ const SignIn = () => {
           handleChange={handleChange}
           label="email"
           required
-          // autoComplete="current-email"
+        // autoComplete="current-email"
         />
         <FormInput
           name="password"
@@ -49,7 +49,7 @@ const SignIn = () => {
           handleChange={handleChange}
           label="password"
           required
-          // autoComplete="current-password"
+        // autoComplete="current-password"
         />
         <div className="buttons">
           <CustomButton type="submit">Sign In</CustomButton>

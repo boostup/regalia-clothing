@@ -6,7 +6,7 @@ import { signUpStart } from "../../redux/user/actions";
 import CustomButton from "../CustomButton";
 import FormInput from "../FormInput";
 
-import Container from "./styles";
+import Container from "./sign-up-styles";
 
 const SignUp = () => {
   const [userData, setUserData] = useState({
@@ -42,7 +42,7 @@ const SignUp = () => {
   return (
     <Container>
       <h2 className="title">I do not have an account</h2>
-      <span>Sign up with your email and password</span>
+      <span className="instructions">Sign up with your email and password</span>
       <form autoComplete="off" className="form" onSubmit={handleSubmit}>
         <FormInput
           type="text"
@@ -80,7 +80,9 @@ const SignUp = () => {
           // autoComplete="confirm-password"
           required
         />
-        <CustomButton type="submit">Sign Up</CustomButton>
+        <div className="buttons">
+          <CustomButton type="submit">Sign Up</CustomButton>
+        </div>
       </form>
     </Container>
   );

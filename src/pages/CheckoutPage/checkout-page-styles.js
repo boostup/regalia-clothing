@@ -45,4 +45,17 @@ export default styled.div`
     margin-left: auto;
     margin-top: 40px;
   }
+
+  @media screen and (max-width: 800px) {
+      width: unset;
+      margin: 1rem;
+
+      .thead{
+        display:none;
+        .th {
+          width: unset;
+        }
+      }
+    }
+
 `;

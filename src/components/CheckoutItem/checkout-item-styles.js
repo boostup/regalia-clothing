@@ -41,4 +41,67 @@ export default styled.div`
     padding-left: 12px;
     cursor: pointer;
   }
+
+  @media screen and (max-width: 800px) {
+
+    .image-container,
+    .name,
+    .quantity,
+    .price,
+    .remove-button
+    {
+      width: unset;
+    }    
+
+    .image-container {
+      grid-area: image;
+
+    }    
+
+    .name {
+      justify-self: start;
+      font-weight: bold;
+    }
+
+    .quantity{
+      justify-self: start;
+      align-self: start;
+    }
+
+    .price {
+      justify-self: end;
+      align-self: end;
+    }
+
+    .remove-button {
+      padding-left: unset;
+      align-self: start;
+      justify-self: end;
+    }  
+
+    /** GRID DEFINITION */
+
+    .name {
+      grid-area: name;
+    }
+
+    .quantity {
+      grid-area: quantity;
+    }
+    .price {
+      grid-area: price;
+    }
+    .remove-button {
+      grid-area: remove;
+    }    
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "image name name remove"
+    "image quantity . ."
+    "image quantity price price"; 
+  }
+
 `;

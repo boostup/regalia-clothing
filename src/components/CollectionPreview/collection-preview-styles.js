@@ -5,17 +5,30 @@ export default styled.div`
   flex-direction: column;
   margin-bottom: 30px;
 
-  .title {
-    font-size: 28px;
-    text-transform: uppercase;
-    margin: 0 0 25px;
-    cursor: pointer;
+  .nav-bar {
+    &::before {
+      content: "\u00A0";
+    }
+    display: grid;
+    grid-template-columns: 1fr 11fr;
     position: relative;
+    margin: 0 0 25px;
+    width:100%;
 
     .nav-icon {
-      font-size: 22px;
-      top: -4px;
-      position: relative;
+      top: 1px;
+      position: absolute;
+    }
+
+    .title {
+      font-size: 28px;
+      text-transform: uppercase;
+      text-align: center;
+      position: absolute;
+      width:100%;
+      margin: 0 auto;
+      cursor: pointer;
+
     }
   }
 
@@ -26,11 +39,11 @@ export default styled.div`
 
   @media screen and (max-width: 800px) {
     align-items: center;
-
+    
     .preview {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: 1rem;
+      grid-gap: 1.6rem;
     }
   }
 `;

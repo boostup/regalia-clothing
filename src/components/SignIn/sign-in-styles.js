@@ -5,12 +5,18 @@ export default styled.div`
   display: flex;
   flex-direction: column;
 
-  .title {
-    margin: 10px 0;
+  .title,
+  .instructions  {
+    margin: 1rem 0;
+    text-align: center;
   }
 
   .buttons {
     display: flex;
     justify-content: space-between;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
   }
 `;
