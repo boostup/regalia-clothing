@@ -7,18 +7,26 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   font-family: "Open Sans Condensed";
-  padding: 1rem 2rem;
+  padding: 0;
   margin: 0;
   
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   @media screen and (max-width: 800px) {
-    padding: 0.3rem 0.5rem;
+    .page-content{
+      padding: 4rem 2rem;
+    }
   }
 }
 
 a {
   text-decoration: none;
   color: black;
-}`;
+}
+
+.page-content{
+  padding: 6rem 2rem;
+}
+
+`;

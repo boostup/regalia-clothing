@@ -4,6 +4,10 @@ export default styled.div`
   height: 70px;
   width: 100%;
   display: flex;
+  position: fixed;
+  background-color: white;
+  /* box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4); */
+  z-index: 3;
   justify-content: space-between;
   margin-bottom: 25px;
 
