@@ -12,7 +12,7 @@ export default styled.div`
     display: grid;
     grid-template-columns: 1fr 11fr;
     position: relative;
-    margin: 0 0 25px;
+    margin: 0 0 2.5rem;
     width:100%;
 
     .nav-icon {
@@ -33,15 +33,19 @@ export default styled.div`
   }
 
   .preview {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
   }
 
   @media screen and (max-width: 800px) {
     align-items: center;
+
+    .nav-bar {
+      margin: 0 0 2rem;
+    }
     
     .preview {
-      display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 1.6rem;
     }

@@ -11,13 +11,12 @@ export default styled.div`
     display: grid;
     grid-template-columns: 1fr 11fr;
     position: relative;
-    margin: 0 0 25px;
+    margin: 0 0 2.5rem;
     width:100%;
 
     .nav-icon {
       cursor: pointer;
       font-size: 22px;
-      left: 1rem;
       position: absolute;
       z-index:2;
     }  
@@ -35,7 +34,7 @@ export default styled.div`
   .items {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 1rem;
 
     & > div {
       margin-bottom: 30px;
@@ -43,17 +42,15 @@ export default styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    /* padding: 0rem 1.5rem; */
-    margin: 0 auto;
+    align-items: center;
 
     .nav-bar {
-      
+      margin: 0 0 2rem;
     }
 
     .items {
       grid-template-columns: 1fr 1fr;
       grid-gap: 1.6rem;
-      margin: 0 auto;
       margin-bottom:1.3rem;
 
       & > div {
