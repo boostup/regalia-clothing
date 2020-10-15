@@ -24,7 +24,7 @@ export default class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <ErrorImageOverlay>
-          <ErrorImageContainer imageUrl="https://i.imgur.com/yW2W9SC.png" />
+          <ErrorImageContainer imageUrl="/images/page-not-found.png" />
           <ErrorImageText>
             Sorry this page is unvailable at the moment
           </ErrorImageText>
