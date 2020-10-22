@@ -6,7 +6,7 @@ export default styled.div`
   flex-direction: column;
 
   .title,
-  .instructions  {
+  .instructions {
     margin: 1rem 0;
     text-align: center;
   }
@@ -16,7 +16,13 @@ export default styled.div`
     justify-content: space-between;
   }
 
+  .or {
+    text-align: center;
+  }
+
   @media screen and (max-width: 800px) {
     width: 100%;
+    border: 1px solid lightgrey;
+    padding: 1rem;
   }
 `;

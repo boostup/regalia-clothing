@@ -40,7 +40,7 @@ const SignIn = () => {
           handleChange={handleChange}
           label="email"
           required
-        // autoComplete="current-email"
+          // autoComplete="current-email"
         />
         <FormInput
           name="password"
@@ -49,10 +49,11 @@ const SignIn = () => {
           handleChange={handleChange}
           label="password"
           required
-        // autoComplete="current-password"
+          // autoComplete="current-password"
         />
         <div className="buttons">
           <CustomButton type="submit">Sign In</CustomButton>
+          <p className="or">or</p>
           <CustomButton
             type="button"
             onClick={() => dispatch(googleSignInStart())}

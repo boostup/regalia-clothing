@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import {
   ErrorImageContainer,
@@ -26,7 +27,10 @@ export default class ErrorBoundary extends Component {
         <ErrorImageOverlay>
           <ErrorImageContainer imageUrl="/images/page-not-found.png" />
           <ErrorImageText>
-            Sorry this page is unvailable at the moment
+            <p>Sorry this page is unvailable at the moment.</p>
+            <p>
+              <Link to="/">Click here to return to the home page</Link>
+            </p>
           </ErrorImageText>
         </ErrorImageOverlay>
       );

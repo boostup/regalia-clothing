@@ -25,12 +25,18 @@ const invertedButtonStyle = css`
 `;
 
 const googleSignInStyles = css`
-  background-color: #4285f4;
-  color: white;
   border: none;
+  background-image: url(https://www.gstatic.com/mobilesdk/160512_mobilesdk/auth_service_google.svg);
+  background-position: 1rem center;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 800px) {
+    background-position: 0.6rem center;
+  }
 
   &:hover {
-    background-color: #357ae8;
+    color: white;
+    background-color: #2f72dc;
   }
 `;
 

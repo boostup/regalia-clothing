@@ -14,11 +14,12 @@ export default styled.div`
   @media screen and (max-width: 800px) {
     width: 100%;
     margin-top: 2rem;
+    border: 1px solid lightgrey;
+    padding: 1rem;
 
     .buttons {
       display: flex;
       justify-content: space-between;
     }
-
-  }  
+  }
 `;

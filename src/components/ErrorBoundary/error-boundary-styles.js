@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components/macro";
 
 export const ErrorImageOverlay = styled.div`
   height: 60vh;
@@ -16,9 +16,19 @@ export const ErrorImageContainer = styled.div`
   background-position: center;
   width: 40vh;
   height: 40vh;
+
+  @media screen and (max-width: 800px) {
+    width: 20vh;
+    height: 20vh;
+  }
 `;
 
-export const ErrorImageText = styled.h2`
-  font-size: 28px;
+export const ErrorImageText = styled.div`
+  font-size: 1.8rem;
   color: #2f8e89;
+  text-align: center;
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.4rem;
+  }
 `;
