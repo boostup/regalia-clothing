@@ -13,9 +13,8 @@ import { checkUserSession } from "./redux/user/actions";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ShopPage = lazy(() => import("./pages/ShopPage"));
-const SignInAndSignOutPage = lazy(() => import("./pages/SignInAndSignOutPage"));
+const SignInAndSignUpPage = lazy(() => import("./pages/SignInAndSignUpPage"));
 const CheckoutPage = lazy(() => import("./pages/CheckoutPage"));
-
 
 function App() {
   const currentUser = useSelector((state) => selectCurrentUser(state));
@@ -40,7 +39,7 @@ function App() {
                 exact
                 path="/signin"
                 render={() =>
-                  currentUser ? <Redirect to="/" /> : <SignInAndSignOutPage />
+                  currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
                 }
               />
             </Suspense>
