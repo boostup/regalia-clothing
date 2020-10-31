@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import FormInput from "../FormInput";
 import CustomButton from "../CustomButton";
+import FormErrorMessage from "../FormErrorMessage";
 
 import { emailSignInStart, googleSignInStart } from "../../redux/user/actions";
 
@@ -14,6 +15,8 @@ const SignIn = () => {
     password: "",
   });
   const { email, password } = userData;
+
+  const signInError = useSelector((state) => state.user.signInError);
 
   const dispatch = useDispatch();
 
@@ -33,6 +36,7 @@ const SignIn = () => {
       <span className="instructions">Sign in with your email and password</span>
 
       <form autoComplete="off" onSubmit={handleSubmit}>
+        <FormErrorMessage error={signInError} />
         <FormInput
           name="email"
           type="email"
@@ -51,6 +55,7 @@ const SignIn = () => {
           required
           // autoComplete="current-password"
         />
+
         <div className="buttons">
           <CustomButton type="submit">Sign In</CustomButton>
           <p className="or">or</p>

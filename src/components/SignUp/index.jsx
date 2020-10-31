@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { signUpStart } from "../../redux/user/actions";
+import { signUpStart, signUpFailure } from "../../redux/user/actions";
 
 import CustomButton from "../CustomButton";
 import FormInput from "../FormInput";
+import FormErrorMessage from "../FormErrorMessage";
 
 import Container from "./sign-up-styles";
 
@@ -18,12 +19,20 @@ const SignUp = () => {
 
   const { displayName, email, password, confirmPassword } = userData;
 
+  let signUpError = useSelector((state) => state.user.signUpError);
+
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      alert("passwords don't match");
+      dispatch(
+        signUpFailure({
+          code: "passwords unmatched",
+          message:
+            "the provided password and password confirmation do not match",
+        })
+      );
       return;
     }
     dispatch(signUpStart({ displayName, email, password }));
@@ -44,6 +53,7 @@ const SignUp = () => {
       <h2 className="title">I do not have an account</h2>
       <span className="instructions">Sign up with your email and password</span>
       <form autoComplete="off" className="form" onSubmit={handleSubmit}>
+        <FormErrorMessage error={signUpError} />
         <FormInput
           type="text"
           name="displayName"
