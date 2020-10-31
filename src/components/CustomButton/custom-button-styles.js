@@ -2,8 +2,12 @@ import styled, { css } from "styled-components/macro";
 
 const buttonStyles = css`
   background-color: black;
-  color: white;
   border: none;
+
+  &,
+  a {
+    color: white;
+  }
 
   &:hover {
     background-color: white;

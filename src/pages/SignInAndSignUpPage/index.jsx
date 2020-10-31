@@ -2,9 +2,9 @@ import React from "react";
 import SignIn from "../../components/SignIn";
 import SignUp from "../../components/SignUp";
 
-import Container from "./sigin-and-signout-page-styles";
+import Container from "./sigin-and-signup-page-styles";
 
-function SignInAndSignOutPage() {
+function SignInAndSignUpPage() {
   return (
     <Container>
       <SignIn />
@@ -13,4 +13,4 @@ function SignInAndSignOutPage() {
   );
 }
 
-export default SignInAndSignOutPage;
+export default SignInAndSignUpPage;

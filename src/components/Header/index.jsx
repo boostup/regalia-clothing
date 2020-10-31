@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import CartIcon from "../CartIcon";
@@ -11,6 +10,7 @@ import { selectCartHidden } from "../../redux/cart/selectors";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 import Container from "./header-styles";
+import Link from "../ScrollToTop/Link";
 
 function Header() {
   const currentUser = useSelector(selectCurrentUser);
@@ -35,10 +35,10 @@ function Header() {
             Sign out
           </div>
         ) : (
-            <Link to="/signin" className="option">
-              Sign in
-            </Link>
-          )}
+          <Link to="/signin" className="option">
+            Sign in
+          </Link>
+        )}
         <CartIcon />
       </div>
       {hidden ? null : <CartDropdown />}
