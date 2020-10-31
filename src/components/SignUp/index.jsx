@@ -19,7 +19,7 @@ const SignUp = () => {
 
   const { displayName, email, password, confirmPassword } = userData;
 
-  let signUpError = useSelector((state) => state.user.signUpError);
+  const signUpError = useSelector((state) => state.user.signUpError);
 
   const dispatch = useDispatch();
 
