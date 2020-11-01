@@ -1,33 +1,33 @@
 const INITIAL_STATE = {
-  sections: [
+  collections: [
     {
       title: "hats",
-      imageUrl: "images/sections/hats.png",
+      imageUrl: require("../../assets/directory/hats.png"),
       id: 1,
       linkUrl: "shop/hats",
     },
     {
       title: "jackets",
-      imageUrl: "images/sections/jackets.png",
+      imageUrl: require("../../assets/directory/jackets.png"),
       id: 2,
       linkUrl: "shop/jackets",
     },
     {
       title: "sneakers",
-      imageUrl: "images/sections/sneakers.png",
+      imageUrl: require("../../assets/directory/sneakers.png"),
       id: 3,
       linkUrl: "shop/sneakers",
     },
     {
       title: "womens",
-      imageUrl: "images/sections/womens.png",
+      imageUrl: require("../../assets/directory/womens.png"),
       size: "large",
       id: 4,
       linkUrl: "shop/womens",
     },
     {
       title: "mens",
-      imageUrl: "images/sections/men.png",
+      imageUrl: require("../../assets/directory/men.png"),
       size: "large",
       id: 5,
       linkUrl: "shop/mens",
