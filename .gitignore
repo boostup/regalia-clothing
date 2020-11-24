@@ -1,4 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Local Netlify folder
+.netlify
+
+*.http
+
+# netlify serverless functions 
+functions/node_modules
 
 # dependencies
 /node_modules
