@@ -14,7 +14,7 @@ exports.handler = async (event) => {
       if (stripeErr) {
         reject({
           statusCode: 500,
-          body: stripeErr,
+          body: JSON.stringify({ error: stripeErr }),
         });
       } else {
         resolve({
